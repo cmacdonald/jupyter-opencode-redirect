@@ -27,6 +27,11 @@ test = ["pytest>=7", "pytest-jupyter[server]>=0.6"]
 [project.entry-points."jupyter_server.extension"]
 jupyter_opencode_redirect = "jupyter_opencode_redirect"
 
+[tool.setuptools.data-files]
+"etc/jupyter/jupyter_server_config.d" = [
+    "jupyter-config/jupyter_server_config.d/jupyter_opencode_redirect.json"
+]
+
 [tool.hatch.version]
 path = "jupyter_opencode_redirect/__init__.py"
 
