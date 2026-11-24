@@ -1,0 +1,11 @@
+{
+  "name": "jupyter-opencode-redirect",
+  "version": "0.1.0",
+  "description": "Jupyter Server extension that redirects /opencode to a URL produced by a shell command",
+  "license": "MIT",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cmacdonald/jupyter-opencode-redirect.git"
+  }
+}
