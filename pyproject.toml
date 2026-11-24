@@ -1,0 +1,37 @@
+[build-system]
+requires = ["hatchling>=1.21"]
+build-backend = "hatchling.build"
+
+[project]
+name = "jupyter-opencode-redirect"
+description = "Jupyter Server extension that redirects /opencode to a URL produced by a shell command"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = ["jupyter_server>=2.13"]
+license = {text = "MIT"}
+dynamic = ["version"]
+classifiers = [
+  "Framework :: Jupyter",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=7", "pytest-jupyter[server]>=0.6"]
+
+[project.entry-points."jupyter_server.extension"]
+jupyter_opencode_redirect = "jupyter_opencode_redirect"
+
+[tool.hatch.version]
+path = "jupyter_opencode_redirect/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["jupyter_opencode_redirect"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
