@@ -170,7 +170,7 @@ class OpenCodeRedirect(ExtensionApp):
 
     command = Unicode(
         #default_value="echo http://localhost:4096",
-        default_value='echo "opencode pair 2>/dev/null| grep 127.0.0.1 | cut -f4- -d/',
+        default_value='/root/.opencode/bin/opencode pair 2>/dev/null| grep 127.0.0.1 | cut -f4- -d/',
         help="""Shell command used to resolve the redirect target.
 
         The last non-empty line of stdout must be an absolute http(s) URL.
