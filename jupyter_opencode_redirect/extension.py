@@ -76,6 +76,8 @@ def run_command(
 
 
 def validate_target(target: str) -> str:
+    target = f"http://{os.environ['HOSTNAME']}-agent.craigm.apps.os.dcs.gla.ac.uk/{target}"
+
     """Return *target* if it is a safe absolute http(s) URL."""
     if any(ch.isspace() or ord(ch) < 32 or ord(ch) == 127 for ch in target):
         raise CommandError(
@@ -168,7 +170,7 @@ class OpenCodeRedirect(ExtensionApp):
 
     command = Unicode(
         #default_value="echo http://localhost:4096",
-        default_value='echo "http://$HOSTNAME-agent.craigm.apps.os.dcs.gla.ac.uk/"`opencode pair 2>/dev/null| grep 127.0.0.1 | cut -f4- -d/`',
+        default_value='echo "opencode pair 2>/dev/null| grep 127.0.0.1 | cut -f4- -d/',
         help="""Shell command used to resolve the redirect target.
 
         The last non-empty line of stdout must be an absolute http(s) URL.
